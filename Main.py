@@ -7,7 +7,13 @@ from pygame.locals import *
 from Tkinter import *
 import codecs
 if __name__=="__main__":
-    config = {}
+    config = {
+        "version":"1",
+        "number":"1",
+        "grade":"大一",
+        "major":"文科",
+        "age":"22"
+    }
     def init():
         global config
         #读取配置文件
@@ -16,12 +22,12 @@ if __name__=="__main__":
         for a in conf.readlines():
             s = a.replace("\n","").replace("\r","").split("=")
             config[s[0]] = s[1]
-    init()
+    # init()
     #----------------------------配置部分-----------------------------
     root = Tk()
     root.title("男师范生的职业性别刻板印象")
     root.geometry('1024x768')
-    root.attributes("-fullscreen", False)
+    root.attributes("-fullscreen", True)
     fram = Frame(root,height=768,width=1024,bg="gray")
     fram.pack()
     canvas = Canvas(fram,height=200,width=1024)
